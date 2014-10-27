@@ -1,7 +1,7 @@
 === Accordions ===
 	Contributors: paratheme
 	Donate link: http://paratheme.com
-	Tags: accordions, Responsive accordions, accordions plugin, jQuery accordions, accordions short-code, accordions Widget, accordions plugin wordpress, accordions plugin jquery
+	Tags: accordion, accordions, Responsive accordions, accordions plugin, jQuery accordions, accordions short-code, accordions Widget, accordions plugin wordpress, accordions plugin jquery
 	Requires at least: 3.8
 	Tested up to: 4.0
 	Stable tag: 1.0
