@@ -22,6 +22,7 @@ Accordions is pure HTML & CSS3 responsive accordion grid for WordPress. By this 
 
 
 <strong>Plugin Features</strong><br />
+
 * Fully responsive and mobile ready.
 * Unlimited accordions anywhere.
 * Use via short-code.
