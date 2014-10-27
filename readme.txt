@@ -1,4 +1,4 @@
-=== Accordions ===
+=== Accordion's ===
 	Contributors: paratheme
 	Donate link: http://paratheme.com
 	Tags: accordion, accordions, Responsive accordions, accordions plugin, jQuery accordions, accordions short-code, accordions Widget, accordions plugin wordpress, accordions plugin jquery
