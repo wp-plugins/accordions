@@ -107,328 +107,248 @@ function meta_boxes_accordions_input( $post ) {
 
 
 
+    <div class="para-settings">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table class="form-table">
-
-
-
-
-
-<tr valign="top">
-		<td >
-        
-        <strong>Shortcode</strong><br />
-  <span style=" color:#22aa5d;font-size: 12px;">Copy this shortcode and paste on page or post where you want to display accordions, <br />Use PHP code to your themes file to display accordions.</span>
-        
-        <br /> <br /> 
+        <div class="option-box">
+            <p class="option-title">Shortcode</p>
+            <p class="option-info">Copy this shortcode and paste on page or post where you want to display accordions, Use PHP code to your themes file to display accordions.</p>
+        <br /> 
         <textarea cols="50" rows="1" style="background:#bfefff" onClick="this.select();" >[accordions <?php echo ' id="'.$post->ID.'"';?> ]</textarea>
-        <br /><br />
+        <br />
         PHP Code:<br />
         <textarea cols="50" rows="1" style="background:#bfefff" onClick="this.select();" ><?php echo '<?php echo do_shortcode("[accordions id='; echo "'".$post->ID."' ]"; echo '"); ?>'; ?></textarea>  
         
- <br />
-
-		</td>
-	</tr>
-
-
-
-
-
-
-    <tr valign="top">
-
-        <td style="vertical-align:middle;">
+        </div>
         
-        <ul class="tab-nav">
-            <li nav="1" class="nav1 active">Accordions Options</li>
+        
+        <ul class="tab-nav"> 
+            <li nav="1" class="nav1 active">Options</li>
             <li nav="2" class="nav2">Style</li>
             <li nav="3" class="nav3">Content</li>
-        
-        </ul>
-
-
-        <ul class="box">
-            <li style="display: block;" class="box1 tab-box active">
-            <table>
-                <tr valign="top">
-                	<td style="vertical-align:middle;">
-                   <strong>Option's is empty(try other tab.)</strong><br /><br /> 
-                    </td>
-				</tr>
-                
-                </table>
-            </li>
-            <li class="box2 tab-box">
             
-            <table>
-                <tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Themes</strong><br /><br /> 
+        </ul> <!-- tab-nav end -->
+        
+		<ul class="box">
+            <li style="display: block;" class="box1 tab-box active">
+            
+				<div class="option-box">
+                    <p class="option-title">Option's is empty(try other tab.)</p>
+                    <p class="option-info"></p>
+
+                </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </li>
+            <li style="display: none;" class="box2 tab-box ">
+				<div class="option-box">
+                    <p class="option-title">Themes</p>
+                    <p class="option-info"></p>
                     <select name="accordions_themes"  >
                     <option class="accordions_themes_flat" value="flat" <?php if($accordions_themes=="flat")echo "selected"; ?>>Flat</option>
                   
                     </select>
-                    </td>
-				</tr>
-
-
+                </div>
                 
-
-
-				
-
-                
-                
-                
-                
-                                           
-            <script>
-            jQuery(document).ready(function(jQuery)
-                {
-                        jQuery(".accordions_bg_img_list li").click(function()
-                            { 	
-                                jQuery('.accordions_bg_img_list li.bg-selected').removeClass('bg-selected');
-                                jQuery(this).addClass('bg-selected');
+				<div class="option-box">
+                    <p class="option-title">Background Image</p>
+                    <p class="option-info"></p>
+					<script>
+                    jQuery(document).ready(function(jQuery)
+                        {
+                                jQuery(".accordions_bg_img_list li").click(function()
+                                    { 	
+                                        jQuery('.accordions_bg_img_list li.bg-selected').removeClass('bg-selected');
+                                        jQuery(this).addClass('bg-selected');
+                                        
+                                        var accordions_bg_img = jQuery(this).attr('data-url');
+                    
+                                        jQuery('#accordions_bg_img').val(accordions_bg_img);
+                                        
+                                    })	
+                    
+                                        
+                        })
+                    
+                    </script> 
+                    
+            
+					<?php
+                    
+                    
+                    
+                        $dir_path = accordions_plugin_dir."css/bg/";
+                        $filenames=glob($dir_path."*.png*");
+                    
+                    
+                        $accordions_bg_img = get_post_meta( $post->ID, 'accordions_bg_img', true );
+                        
+                        if(empty($accordions_bg_img))
+                            {
+                            $accordions_bg_img = "";
+                            }
+                    
+                    
+                        $count=count($filenames);
+                        
+                    
+                        $i=0;
+                        echo "<ul class='accordions_bg_img_list' >";
+                    
+                        while($i<$count)
+                            {
+                                $filelink= str_replace($dir_path,"",$filenames[$i]);
                                 
-                                var accordions_bg_img = jQuery(this).attr('data-url');
-            
-                                jQuery('#accordions_bg_img').val(accordions_bg_img);
+                                $filelink= accordions_plugin_url."css/bg/".$filelink;
                                 
-                            })	
-            
                                 
-                })
-            
-            </script> 
-                            
-                            
-                            
-                            
-                            
-                            
-            <tr valign="top">
-            
-                    <td style="vertical-align:middle;">
-                    
-                    <strong>Background Image</strong><br /><br /> 
-                    
-            
-            <?php
-            
-            
-            
-                $dir_path = accordions_plugin_dir."css/bg/";
-                $filenames=glob($dir_path."*.png*");
-            
-            
-                $accordions_bg_img = get_post_meta( $post->ID, 'accordions_bg_img', true );
-                
-                if(empty($accordions_bg_img))
-                    {
-                    $accordions_bg_img = "";
-                    }
-            
-            
-                $count=count($filenames);
-                
-            
-                $i=0;
-                echo "<ul class='accordions_bg_img_list' >";
-            
-                while($i<$count)
-                    {
-                        $filelink= str_replace($dir_path,"",$filenames[$i]);
-                        
-                        $filelink= accordions_plugin_url."css/bg/".$filelink;
-                        
-                        
-                        if($accordions_bg_img==$filelink)
-                            {
-                                echo '<li  class="bg-selected" data-url="'.$filelink.'">';
+                                if($accordions_bg_img==$filelink)
+                                    {
+                                        echo '<li  class="bg-selected" data-url="'.$filelink.'">';
+                                    }
+                                else
+                                    {
+                                        echo '<li   data-url="'.$filelink.'">';
+                                    }
+                                
+                                
+                                echo "<img  width='70px' height='50px' src='".$filelink."' />";
+                                echo "</li>";
+                                $i++;
                             }
-                        else
-                            {
-                                echo '<li   data-url="'.$filelink.'">';
-                            }
-                        
-                        
-                        echo "<img  width='70px' height='50px' src='".$filelink."' />";
-                        echo "</li>";
-                        $i++;
-                    }
-                    
-                echo "</ul>";
-                
-                echo "<input style='width:100%;' value='".$accordions_bg_img."'    placeholder='Please select image or left blank' id='accordions_bg_img' name='accordions_bg_img'  type='text' />";
-            
-            
-            
-            ?>
-                    </td>
-                </tr>
-                      
-          
                             
+                        echo "</ul>";
+                        
+                        echo "<input style='width:100%;' value='".$accordions_bg_img."'    placeholder='Please select image or left blank' id='accordions_bg_img' name='accordions_bg_img'  type='text' />";
+                    
+                    
+                    
+                    ?>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>                
+                
+				<div class="option-box">
+                    <p class="option-title">Icon set</p>
+                    <p class="option-info"></p>
+                    <?php
+					
+                        $dir_path = accordions_plugin_dir."css/icons/";
+                        $filenames=glob($dir_path."*.png*");
+                        
+                        
+                    
+                        $accordions_icons = get_post_meta( $post->ID, 'accordions_icons', true );
+                        
+                        if(empty($accordions_icons))
+                            {
+                            $accordions_icons = "";
+                            }
+                    
+                    
+                        $count=count($filenames);
+                        
+                    
+                        $i=0;
+                        echo "<select class='accordions_icons_list' name='accordions_icons' >";
+                    
+                        while($i<$count)
+                            {
+                                $filelink_name= str_replace($dir_path,"",$filenames[$i]);
+                                
+                                $filelink= accordions_plugin_url."css/icons/".$filelink_name;
+                                
+                                $icon_name = str_replace('.png', '', $filelink_name);
+                                
+                                if($accordions_icons==$icon_name)
+                                    {
+                                        echo '<option style="background:url('.$filelink.') no-repeat scroll 0 0 rgba(0, 0, 0, 0); padding-left:20px;" selected value="'.$icon_name.'">';
+                                    }
+                                else
+                                    {
+                                        echo '<option style="background:url('.$filelink.') no-repeat scroll 0 0 rgba(0, 0, 0, 0); padding-left:20px;" value="'.$icon_name.'">';
+                                    }
+                                
+                                
+        
+                                echo $icon_name."</option>";
+                                $i++;
+                            }
                             
-            <tr valign="top">
-            
-                    <td style="vertical-align:middle;">
-                    
-                    <strong>Icon set</strong><br /><br /> 
-                    
-            
-            <?php
-            
-            
-            
-                $dir_path = accordions_plugin_dir."css/icons/";
-                $filenames=glob($dir_path."*.png*");
-				
-             	
-            
-                $accordions_icons = get_post_meta( $post->ID, 'accordions_icons', true );
-                
-                if(empty($accordions_icons))
-                    {
-                    $accordions_icons = "";
-                    }
-            
-            
-                $count=count($filenames);
-                
-            
-                $i=0;
-                echo "<select class='accordions_icons_list' name='accordions_icons' >";
-            
-                while($i<$count)
-                    {
-                        $filelink_name= str_replace($dir_path,"",$filenames[$i]);
-						
-                        $filelink= accordions_plugin_url."css/icons/".$filelink_name;
-						
-						$icon_name = str_replace('.png', '', $filelink_name);
-						
-                        if($accordions_icons==$icon_name)
-                            {
-                                echo '<option style="background:url('.$filelink.') no-repeat scroll 0 0 rgba(0, 0, 0, 0); padding-left:20px;" selected value="'.$icon_name.'">';
-                            }
-                        else
-                            {
-                                echo '<option style="background:url('.$filelink.') no-repeat scroll 0 0 rgba(0, 0, 0, 0); padding-left:20px;" value="'.$icon_name.'">';
-                            }
+                        echo "</select>";
                         
-                        
-
-                        echo $icon_name."</option>";
-                        $i++;
-                    }
+        
                     
-                echo "</select>";
-                
-
-            
-            
-            
-            ?>
-                    </td>
-                </tr>
-                      
-<!--  -->
-
-				<tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Default Background Color</strong><br /><br />
-                    <input type="text" name="accordions_default_bg_color" id="accordions_default_bg_color" value="<?php if(!empty($accordions_default_bg_color)) echo $accordions_default_bg_color; else echo "#01ce6a"; ?>" />
-                    </td>
-				</tr>
-
-
-
-				<tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Active Background Color</strong><br /><br />
-                    <input type="text" name="accordions_active_bg_color" id="accordions_active_bg_color" value="<?php if(!empty($accordions_active_bg_color)) echo $accordions_active_bg_color; else echo "#02e576"; ?>" />
-                    </td>
-				</tr>
-
-                
-
-                
-				<tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Accordions Header Font Color</strong><br /><br />
-                    <input type="text" name="accordions_items_title_color" id="accordions_items_title_color" value="<?php if(!empty($accordions_items_title_color)) echo $accordions_items_title_color; else echo "#28c8a8"; ?>" />
-                    </td>
-				</tr>                
+                    
+                    
+                    ?>
+                   
+				</div>
                 
                 
-				<tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Accordions Header Font Size</strong><br /><br />
+				<div class="option-box">
+                    <p class="option-title">Default Background Color</p>
+                    <p class="option-info"></p>
+                    <input type="text" name="accordions_default_bg_color" id="accordions_default_bg_color" value="<?php if(!empty($accordions_default_bg_color)) echo $accordions_default_bg_color; else echo "#01ce6a"; ?>" />                </div>
+                
+				<div class="option-box">
+                    <p class="option-title">Active Background Color</p>
+                    <p class="option-info"></p>
+                    <input type="text" name="accordions_active_bg_color" id="accordions_active_bg_color" value="<?php if(!empty($accordions_active_bg_color)) echo $accordions_active_bg_color; else echo "#02e576"; ?>" />                </div>
+
+
+				<div class="option-box">
+                    <p class="option-title">Accordions Header Font Color</p>
+                    <p class="option-info"></p>
+                    <input type="text" name="accordions_items_title_color" id="accordions_items_title_color" value="<?php if(!empty($accordions_items_title_color)) echo $accordions_items_title_color; else echo "#28c8a8"; ?>" />                </div>
+
+
+				<div class="option-box">
+                    <p class="option-title">Accordions Header Font Size</p>
+                    <p class="option-info"></p>
+                    
                     <input type="text" name="accordions_items_title_font_size" placeholder="ex:14px number with px" id="accordions_items_title_font_size" value="<?php if(!empty($accordions_items_title_font_size)) echo $accordions_items_title_font_size; else echo "14px"; ?>" />
-                    </td>
-				</tr>                   
+                    
+                </div>
 
 
-
-
-<tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Accordions Content Font Color</strong><br /><br />
+				<div class="option-box">
+                    <p class="option-title">Accordions Content Font Color</p>
+                    <p class="option-info"></p>
                     <input type="text" name="accordions_items_content_color" id="accordions_items_content_color" value="<?php if(!empty($accordions_items_content_color)) echo $accordions_items_content_color; else echo "#fff"; ?>" />
-                    </td>
-				</tr>
+                </div>
+                
 
-
-
-<tr valign="top">
-                	<td style="vertical-align:middle;">
-                    <strong>Accordions Content Font Size</strong><br /><br />
+				<div class="option-box">
+                    <p class="option-title">Accordions Content Font Size</p>
+                    <p class="option-info"></p>
                     <input type="text" name="accordions_items_content_font_size" id="accordions_items_content_font_size" value="<?php if(!empty($accordions_items_content_font_size)) echo $accordions_items_content_font_size; else echo "13px"; ?>" />
-                    </td>
-				</tr>
-
-
-
-
-
-
-
-
- 
-		</table>
-
-
+                </div>                
+                
+                
+                
+                            
             </li>
-            
-            
-            <li class="box3 tab-box">
-            <div class="accordions-content-buttons" >
-                <div class="button add-accordions">Add</div>
-                <br /> <br />
-            </div>
-
-
-
-
-
-                <table class="accordions-content">
+            <li style="display: none;" class="box3 tab-box ">
+				<div class="option-box">
+                    <p class="option-title">Content</p>
+                    <p class="option-info"></p>
+                    
+                    <div class="accordions-content-buttons" >
+                        <div class="button add-accordions">Add</div>
+                        <br />
+                    </div>
+                <table width="100%" class="accordions-content">
                 
                 <?php
                 $total_row = count($accordions_content_title);
@@ -470,38 +390,16 @@ function meta_boxes_accordions_input( $post ) {
 
                      
                  </table>
-            
+                    
 
-
+                </div>  
             </li>
-            
-            
-            
-            
-            
-            
-            
+        
         </ul>
         
-        
-        
-        </td>
-    </tr> 
-
-</table>
 
 
-
-
-
-
-
-
-
-
-
-
-
+    </div> <!-- para-settings -->
 
 
 

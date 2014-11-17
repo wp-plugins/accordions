@@ -1,10 +1,10 @@
-=== Accordion's ===
+=== Accordion ===
 	Contributors: paratheme
 	Donate link: http://paratheme.com
 	Tags: accordion, accordions, Responsive accordions, accordions plugin, jQuery accordions, accordions short-code, accordions Widget, accordions plugin wordpress, accordions plugin jquery
 	Requires at least: 3.8
 	Tested up to: 4.0
-	Stable tag: 1.0
+	Stable tag: 1.1
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,10 +61,18 @@ then paste this shortcode anywhere in your page to display accordions<br />
 == Screenshots ==
 
 1. screenshot-1
-1. screenshot-2
+2. screenshot-2
+3. screenshot-3
+4. screenshot-4
+
+
 
 == Changelog ==
 
+	= 1.1 =
+    * 17/11/2014 add confirmation before delete accordion content.
+    * 17/11/2014 Update help page.	
+    * 17/11/2014 minor js error fixed.	
 	
 	= 1.0 =
     * 27/10/2014 Initial release.
