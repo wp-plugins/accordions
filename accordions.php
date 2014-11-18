@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Accordions
-Plugin URI: http://paratheme.com/items/accordions-html-css3-responsive-accordions-for-wordpress/
+Plugin URI: http://paratheme.com/items/accordions-html-css3-responsive-accordion-grid-for-wordpress/
 Description: Fully responsive and mobile ready accordion grid for wordpress.
 Version: 1.1
 Author: paratheme
@@ -28,6 +28,8 @@ require_once( plugin_dir_path( __FILE__ ) . 'includes/accordions-functions.php')
 
 //Themes php files
 require_once( plugin_dir_path( __FILE__ ) . 'themes/flat/index.php');
+require_once( plugin_dir_path( __FILE__ ) . 'themes/rounded/index.php');
+require_once( plugin_dir_path( __FILE__ ) . 'themes/rounded-top/index.php');
 
 
 
@@ -59,7 +61,8 @@ function accordions_paratheme_init_scripts()
 		
 		// Style for themes
 		wp_enqueue_style('accordions-style-flat', accordions_plugin_url.'themes/flat/style.css');			
-
+		wp_enqueue_style('accordions-style-rounded', accordions_plugin_url.'themes/rounded/style.css');
+		wp_enqueue_style('accordions-style-rounded-top', accordions_plugin_url.'themes/rounded-top/style.css');		
 		
 	}
 add_action("init","accordions_paratheme_init_scripts");
@@ -96,6 +99,18 @@ function accordions_paratheme_display($atts, $content = null ) {
 				{
 					$accordions_paratheme_display.= accordions_themes_flat($post_id);
 				}
+			elseif($accordions_themes== "rounded")
+				{
+					$accordions_paratheme_display.= accordions_themes_rounded($post_id);
+				}	
+			elseif($accordions_themes== "rounded_top")
+				{
+					$accordions_paratheme_display.= accordions_themes_rounded_top($post_id);
+				}					
+				
+							
+				
+				
 
 return $accordions_paratheme_display;
 
