@@ -88,6 +88,31 @@
 
 
 -->
+               
+               
+<?php
+    if($accordions_customer_type=="free")
+        {	
+?>
+                
+                
+				<div class="option-box">
+                    <p class="option-title">Comparison</p>
+                    <p class="option-info">You could try our premium version for more features.</p>
+                    <a target="_blank" href="<?php echo accordions_pro_url; ?>">
+                	<img class="accordions-pro-pricing" src="<?php echo accordions_plugin_url."css/accordions-pro-pricing.png";?>" />
+               		</a>
+             </div>  
+<?php    
+		}
+
+?>
+               
+               
+               
+               
+               
+               
                 
                 
             </li>        
