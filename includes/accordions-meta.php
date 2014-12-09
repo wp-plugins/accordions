@@ -76,9 +76,6 @@ function meta_boxes_accordions_input( $post ) {
 	$accordions_items_content_color = get_post_meta( $post->ID, 'accordions_items_content_color', true );	
 	$accordions_items_content_font_size = get_post_meta( $post->ID, 'accordions_items_content_font_size', true );		
 	
-	$accordions_items_thumb_size = get_post_meta( $post->ID, 'accordions_items_thumb_size', true );	
-	$accordions_items_thumb_max_hieght = get_post_meta( $post->ID, 'accordions_items_thumb_max_hieght', true );	
-	
 	$accordions_content_title = get_post_meta( $post->ID, 'accordions_content_title', true );	
 	$accordions_content_body = get_post_meta( $post->ID, 'accordions_content_body', true );
 	
@@ -122,31 +119,13 @@ function meta_boxes_accordions_input( $post ) {
         
         
         <ul class="tab-nav"> 
-            <li nav="1" class="nav1 active">Options</li>
-            <li nav="2" class="nav2">Style</li>
+            <li nav="2" class="nav2 active">Style</li>
             <li nav="3" class="nav3">Content</li>
             
         </ul> <!-- tab-nav end -->
         
 		<ul class="box">
-            <li style="display: block;" class="box1 tab-box active">
-            
-				<div class="option-box">
-                    <p class="option-title">Option's is empty(try other tab.)</p>
-                    <p class="option-info"></p>
-
-                </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            </li>
-            <li style="display: none;" class="box2 tab-box ">
+            <li style="display: block;" class="box2 tab-box active">
 				<div class="option-box">
                     <p class="option-title">Themes</p>
                     <p class="option-info"></p>
@@ -453,9 +432,6 @@ function meta_boxes_accordions_save( $post_id ) {
 
 	$accordions_items_content_color = sanitize_text_field( $_POST['accordions_items_content_color'] );	
 	$accordions_items_content_font_size = sanitize_text_field( $_POST['accordions_items_content_font_size'] );	
-
-	$accordions_items_thumb_size = sanitize_text_field( $_POST['accordions_items_thumb_size'] );
-	$accordions_items_thumb_max_hieght = sanitize_text_field( $_POST['accordions_items_thumb_max_hieght'] );	
 	
 	$accordions_content_title = stripslashes_deep( $_POST['accordions_content_title'] );	
 	$accordions_content_body = stripslashes_deep( $_POST['accordions_content_body'] );		
@@ -479,45 +455,10 @@ function meta_boxes_accordions_save( $post_id ) {
 
 	update_post_meta( $post_id, 'accordions_items_content_color', $accordions_items_content_color );
 	update_post_meta( $post_id, 'accordions_items_content_font_size', $accordions_items_content_font_size );
-
-	update_post_meta( $post_id, 'accordions_items_thumb_size', $accordions_items_thumb_size );	
-	update_post_meta( $post_id, 'accordions_items_thumb_max_hieght', $accordions_items_thumb_max_hieght );
 	
 	update_post_meta( $post_id, 'accordions_content_title', $accordions_content_title );
 	update_post_meta( $post_id, 'accordions_content_body', $accordions_content_body );	
-	
-
-
-
-
-
 
 }
+
 add_action( 'save_post', 'meta_boxes_accordions_save' );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>

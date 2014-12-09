@@ -47,7 +47,7 @@ function accordions_themes_flat($post_id)
 		{
 				$accordions_body.= '<li>';
 				$accordions_body.= '<div class="responsive-accordion-head">'.$accordions_title.'<i class="responsive-accordion-icons responsive-accordion-plus '.$accordions_icons.'"></i><i class="responsive-accordion-icons responsive-accordion-minus '.$accordions_icons.'"></i></div>';
-				$accordions_body.= '<div class="responsive-accordion-panel">'.$accordions_content_body[$index];
+				$accordions_body.= '<div style="font-size:'.$accordions_items_content_font_size.';color:'.$accordions_items_content_color.'" class="responsive-accordion-panel">'.$accordions_content_body[$index];
 
 				$accordions_body.= '</div>';	
 				$accordions_body.= '</li>';
