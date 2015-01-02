@@ -17,7 +17,10 @@ Accordions is pure HTML & CSS3 responsive accordion grid for WordPress. By this 
 
 
 ### Accordions by http://paratheme.com
+
 * [Upgrade to Premium!&raquo;](http://goo.gl/0gcRTQ)
+* [Live Demo!&raquo;](http://paratheme.com/demo/accordions/)
+
 
 <br />
 
@@ -36,6 +39,16 @@ Accordions is pure HTML & CSS3 responsive accordion grid for WordPress. By this 
 * Custom font color and size for accordions content.
 
 
+<strong>Premium Features</strong><br />
+
+* Life time free update.
+* Life time support via forum.
+* 7 Days Refund.
+* Themes(4 Different Themes).
+* Icon Position(Left or Right).
+* Custom Icons(Add your own icons).
+* Drag & Drop Content Sorting.
+* WP Editor for Accordion Content.
 
 
 == Installation ==
