@@ -1,8 +1,50 @@
 
 jQuery(document).ready(function($)
 	{
-		
-		
+
+
+
+
+		$(document).on('keyup', '#accordions_metabox .section-panel input', function()
+			{
+				var text = $(this).val();
+				
+				if(text == '')
+					{
+						$(this).parent().parent().children('.section-header').children('.accordions-title-preview').html('start typing');
+					}
+				else
+					{
+						$(this).parent().parent().children('.section-header').children('.accordions-title-preview').html(text);
+					}
+				
+				
+			
+			})
+
+
+
+
+
+
+		$(document).on('click', '#accordions_metabox .section-header', function()
+			{	
+				if($(this).parent().hasClass('active'))
+					{
+					$(this).parent().removeClass('active');
+					}
+				else
+					{
+						$(this).parent().addClass('active');
+					}
+				
+
+			})
+
+
+
+
+
 		$(document).on('click', '.tab-nav li', function()
 			{
 				$(".active").removeClass("active");
@@ -49,7 +91,7 @@ jQuery(document).ready(function($)
 					}
 				
 				
-				$(".accordions-content").append('<tr index="'+row+'" valign="top"><td class="tab-new" style="vertical-align:middle;"><span class="removeaccordions">X</span><br/><br/><input width="100%" placeholder="accordions Header" type="text" name="accordions_content_title['+row+']" value="" /><br /><br /><textarea placeholder="accordions Content" name="accordions_content_body['+row+']" ></textarea></td></tr>');
+				$(".accordions-content").append('<tr index="'+row+'" valign="top"><td class="section-dragHandle">*</td><td class="tab-new" style="vertical-align:middle;"><br/><input width="100%" placeholder="accordions Header" type="text" name="accordions_content_title['+row+']" value="" /><br /><br /><textarea placeholder="accordions Content" name="accordions_content_body['+row+']" ></textarea></td></tr>');
 				
 				
 				
@@ -68,9 +110,9 @@ jQuery(document).ready(function($)
 		$(document).on('click', '#accordions_metabox .removeaccordions', function()
 			{	
 				
-				if (confirm('Do you really want to delete this tab ?')) {
+				if (confirm('Do you really want to delete this accordion ?')) {
 					
-					$(this).parent().parent().remove();
+					$(this).parent().parent().parent().remove();
 				}
 				
 				

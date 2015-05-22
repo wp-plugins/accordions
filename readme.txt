@@ -3,8 +3,8 @@
 	Donate link: http://paratheme.com
 	Tags: accordion, accordions, Responsive accordions, accordions plugin, jQuery accordions, accordions short-code, accordions Widget, accordions plugin wordpress, accordions plugin jquery
 	Requires at least: 3.8
-	Tested up to: 4.2
-	Stable tag: 1.2
+	Tested up to: 4.2.2
+	Stable tag: 1.3
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,7 +18,7 @@ Accordions is pure HTML & CSS3 responsive accordion grid for WordPress. By this 
 
 ### Accordions by http://paratheme.com
 
-* [Upgrade to Premium!&raquo;](http://goo.gl/0gcRTQ)
+* [Buy to Premium!&raquo;](http://paratheme.com/items/accordions-html-css3-responsive-accordion-grid-for-wordpress/)
 * [Live Demo!&raquo;](http://paratheme.com/demo/accordions/)
 
 
@@ -82,6 +82,10 @@ then paste this shortcode anywhere in your page to display accordions<br />
 
 
 == Changelog ==
+
+	= 1.3 =
+    * 22/05/2015 - update - UI update for admin content part.
+    * 22/05/2015 - add - WP Editor for Accordion Content.	
 
 	= 1.2 =
     * 12/11/2014 problem fixed for content color and font size.

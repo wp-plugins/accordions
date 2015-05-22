@@ -3,7 +3,7 @@
 Plugin Name: Accordions
 Plugin URI: http://paratheme.com/items/accordions-html-css3-responsive-accordion-grid-for-wordpress/
 Description: Fully responsive and mobile ready accordion grid for wordpress.
-Version: 1.2
+Version: 1.3
 Author: paratheme
 Author URI: http://paratheme.com
 License: GPLv2 or later
@@ -20,7 +20,7 @@ define('accordions_conatct_url', 'http://paratheme.com/contact' );
 define('accordions_qa_url', 'http://paratheme.com/qa/' );
 define('accordions_plugin_name', 'Accordions' );
 define('accordions_share_url', 'https://wordpress.org/plugins/accordions/' );
-define('accordions_tutorial_video_url', '//www.youtube.com/embed/8OiNCDavSQg?rel=0' );
+define('accordions_tutorial_video_url', '//www.youtube.com/embed/h2wNFJaaY8s?rel=0' );
 
 require_once( plugin_dir_path( __FILE__ ) . 'includes/accordions-meta.php');
 require_once( plugin_dir_path( __FILE__ ) . 'includes/accordions-functions.php');
@@ -40,7 +40,7 @@ function accordions_paratheme_init_scripts()
 		wp_enqueue_script('jquery');
 		
 		wp_enqueue_script('accordions_js', plugins_url( '/js/scripts.js' , __FILE__ ) , array( 'jquery' ));
-
+		
 		wp_enqueue_style('accordions_style', accordions_plugin_url.'css/style.css');		
 		wp_enqueue_style('responsive-accordion', accordions_plugin_url.'css/responsive-accordion.css');	
 		
@@ -71,7 +71,7 @@ register_activation_hook(__FILE__, 'accordions_paratheme_activation');
 
 function accordions_paratheme_activation()
 	{
-		$accordions_version= "1.2";
+		$accordions_version= "1.3";
 		update_option('accordions_version', $accordions_version); //update plugin version.
 		
 		$accordions_customer_type= "free"; //customer_type "free"
@@ -97,13 +97,10 @@ function accordions_paratheme_display($atts, $content = null ) {
 				{
 					$accordions_paratheme_display.= accordions_themes_flat($post_id);
 				}
-			elseif($accordions_themes== "rounded")
+
+			else
 				{
-					$accordions_paratheme_display.= accordions_themes_rounded($post_id);
-				}	
-			elseif($accordions_themes== "rounded_top")
-				{
-					$accordions_paratheme_display.= accordions_themes_rounded_top($post_id);
+					$accordions_paratheme_display.= accordions_themes_flat($post_id);
 				}					
 				
 							

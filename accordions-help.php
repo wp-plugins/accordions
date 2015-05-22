@@ -78,7 +78,11 @@
 					?>
                 </div>
                 
-
+				<div class="option-box">
+                    <p class="option-title">Video Tutorial(with premium features)</p>
+                    <p class="option-info">Please watch this video tutorial.</p>
+                	<iframe width="640" height="480" src="<?php echo accordions_tutorial_video_url; ?>" frameborder="0" allowfullscreen></iframe>
+                </div>
                
 
                 

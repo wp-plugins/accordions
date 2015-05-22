@@ -327,49 +327,73 @@ function meta_boxes_accordions_input( $post ) {
                         <div class="button add-accordions">Add</div>
                         <br />
                     </div>
-                <table width="100%" class="accordions-content">
+
+                 <table width="100%" class="accordions-content" id="accordions-content">
                 
                 <?php
-                $total_row = count($accordions_content_title);
+               // $total_row = count($accordions_content_title);
 				
 				if(empty($accordions_content_title))
 					{
-						$accordions_content_title = array(0);
+						$accordions_content_title = array('0'=>'Demo Title');
 					}
-				
+				$i=0;
 				foreach ($accordions_content_title as $index => $accordions_title)
 					{
-
+						
+						if(empty($accordions_content_body[$index]))
+							{
+								$accordions_content_body[$index] = 'Demo Content';
+							}
 					
 					?>
                     <tr index='<?php echo $index; ?>' valign="top">
-
+                    
+                    	<td class="section-dragHandle">*</td>
+                    
                         <td style="vertical-align:middle;">
+                        <div class="section-header">
+                        	<div class="accordions-title-preview">
+                            <?php if(!empty($accordions_title)) echo $accordions_title; ?>
+                            </div>
+							
                         <span class="removeaccordions">X</span>
-                        <br/><br/>
-                        <input width="100%" placeholder="accordions Header" type="text" name="accordions_content_title[<?php echo $index; ?>]" value="<?php if(!empty($accordions_title)) echo $accordions_title; ?>" />
-                        <br /><br />
-                        <textarea placeholder="accordions Content" name="accordions_content_body[<?php echo $index; ?>]" ><?php if(!empty($accordions_content_body[$index])) echo $accordions_content_body[$index]; ?></textarea>
+
+                        </div>
+                        <div class="section-panel">
+                        <input width="100%" placeholder="accordions Header" type="text" name="accordions_content_title[row_<?php echo $i; ?>]" value="<?php if(!empty($accordions_title)) echo $accordions_title; ?>" />
+
+                        
+                        
+<?php
+
+	wp_editor( stripslashes($accordions_content_body[$index]), 'accordions_content_body'.$i, $settings = array('textarea_name'=>'accordions_content_body[row_'.$i.']') );
+
+
+?>
+                        </div>
+
+
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         </td>           
                     </tr>
                     <?php
 					
-					
+					$i++;
 					}
 				
 				?>
-                
-                
-                
-                
-                
-                
-                
-
 
                      
                  </table>
-                    
+  
 
                 </div>  
             </li>
