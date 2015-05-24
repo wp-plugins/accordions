@@ -51,6 +51,13 @@ Accordions is pure HTML & CSS3 responsive accordion grid for WordPress. By this 
 * WP Editor for Accordion Content.
 
 
+<strong>Video Tutorial(With premium features)</strong><br />
+https://www.youtube.com/watch?v=h2wNFJaaY8s
+
+
+
+
+
 == Installation ==
 
 1. Install as regular WordPress plugin.<br />
