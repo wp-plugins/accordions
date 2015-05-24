@@ -47,8 +47,14 @@ Accordions is pure HTML & CSS3 responsive accordion grid for WordPress. By this 
 * Themes(4 Different Themes).
 * Icon Position(Left or Right).
 * Custom Icons(Add your own icons).
-* Drag & Drop Content Sorting.
+* Accordion Sorting.
 * WP Editor for Accordion Content.
+* Multilevel accordion.
+* Hide any accordion without deleting.
+* Click Header to scroll top.
+* Default active accordion.
+
+
 
 
 <strong>Video Tutorial(With premium features)</strong><br />
