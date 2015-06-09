@@ -361,7 +361,7 @@ function meta_boxes_accordions_input( $post ) {
 
                         </div>
                         <div class="section-panel">
-                        <input width="100%" placeholder="accordions Header" type="text" name="accordions_content_title[row_<?php echo $i; ?>]" value="<?php if(!empty($accordions_title)) echo $accordions_title; ?>" />
+                        <input width="100%" class="accordions_content_title" placeholder="accordions Header" type="text" name="accordions_content_title[row_<?php echo $i; ?>]" value="<?php if(!empty($accordions_title)) echo $accordions_title; ?>" />
 
                         
                         

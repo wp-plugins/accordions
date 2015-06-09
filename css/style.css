@@ -46,9 +46,8 @@
 
 
 
-#accordions_metabox .accordions-content input, #accordions_metabox .accordions-content textarea {
-
-  width: 95%;
+#accordions_metabox .accordions_content_title, #accordions_metabox .accordions-content textarea {
+	width:95%;
 }
 
 
