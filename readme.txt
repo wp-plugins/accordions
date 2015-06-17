@@ -4,7 +4,7 @@
 	Tags: accordion, accordions, Responsive accordions, accordions plugin, jQuery accordions, accordions short-code, accordions Widget, accordions plugin wordpress, accordions plugin jquery
 	Requires at least: 3.8
 	Tested up to: 4.2.2
-	Stable tag: 1.4
+	Stable tag: 1.5
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,10 @@ then paste this shortcode anywhere in your page to display accordions<br />
 
 == Changelog ==
 
+
+	= 1.5 =
+    * 09/06/2015 - fix - fix issue for content formating and added wpautop().
+	
 	= 1.4 =
     * 09/06/2015 - fix - WP editor button width fixed.
 	

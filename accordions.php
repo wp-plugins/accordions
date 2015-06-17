@@ -3,7 +3,7 @@
 Plugin Name: Accordions
 Plugin URI: http://paratheme.com/items/accordions-html-css3-responsive-accordion-grid-for-wordpress/
 Description: Fully responsive and mobile ready accordion grid for wordpress.
-Version: 1.4
+Version: 1.5
 Author: paratheme
 Author URI: http://paratheme.com
 License: GPLv2 or later
@@ -71,7 +71,7 @@ register_activation_hook(__FILE__, 'accordions_paratheme_activation');
 
 function accordions_paratheme_activation()
 	{
-		$accordions_version= "1.4";
+		$accordions_version= "1.5";
 		update_option('accordions_version', $accordions_version); //update plugin version.
 		
 		$accordions_customer_type= "free"; //customer_type "free"
