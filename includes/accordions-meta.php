@@ -1,5 +1,11 @@
 <?php
 
+/*
+* @Author 		ParaTheme
+* Copyright: 	2015 ParaTheme
+*/
+
+if ( ! defined('ABSPATH')) exit;  // if direct access
 
 function accordions_posttype_register() {
  
@@ -51,7 +57,7 @@ function meta_boxes_accordions()
 		$screens = array( 'accordions' );
 		foreach ( $screens as $screen )
 			{
-				add_meta_box('accordions_metabox',__( 'accordions Options','accordions' ),'meta_boxes_accordions_input', $screen);
+				add_meta_box('accordions_metabox',__( 'Accordions Options','accordions' ),'meta_boxes_accordions_input', $screen);
 			}
 	}
 add_action( 'add_meta_boxes', 'meta_boxes_accordions' );
@@ -61,12 +67,13 @@ function meta_boxes_accordions_input( $post ) {
 	
 	global $post;
 	wp_nonce_field( 'meta_boxes_accordions_input', 'meta_boxes_accordions_input_nonce' );
-	
+
 	
 	$accordions_bg_img = get_post_meta( $post->ID, 'accordions_bg_img', true );
 	$accordions_themes = get_post_meta( $post->ID, 'accordions_themes', true );
-	$accordions_icons = get_post_meta( $post->ID, 'accordions_icons', true );	
-	
+	$accordions_icons = get_post_meta( $post->ID, 'accordions_icons', true );
+	$accordions_icons_minus = get_post_meta( $post->ID, 'accordions_icons_minus', true );	
+
 	$accordions_default_bg_color = get_post_meta( $post->ID, 'accordions_default_bg_color', true );	
 	$accordions_active_bg_color = get_post_meta( $post->ID, 'accordions_active_bg_color', true );
 	
@@ -79,9 +86,9 @@ function meta_boxes_accordions_input( $post ) {
 	$accordions_content_title = get_post_meta( $post->ID, 'accordions_content_title', true );	
 	$accordions_content_body = get_post_meta( $post->ID, 'accordions_content_body', true );
 	
-	
+	$accordions_hide = get_post_meta( $post->ID, 'accordions_hide', true );	
  
-
+	$accordions_custom_css = get_post_meta( $post->ID, 'accordions_custom_css', true );	
 
 
 
@@ -94,10 +101,7 @@ function meta_boxes_accordions_input( $post ) {
 				echo '';
       
 			}
-		elseif($accordions_customer_type=="pro")
-			{
-				//premium customer support.
-			}
+
 
 ?>
 
@@ -118,19 +122,68 @@ function meta_boxes_accordions_input( $post ) {
         </div>
         
         
-        <ul class="tab-nav"> 
+        <ul class="tab-nav">
+       
             <li nav="2" class="nav2 active">Style</li>
             <li nav="3" class="nav3">Content</li>
+            <li nav="4" class="nav4">Custom CSS</li>            
             
-        </ul> <!-- tab-nav end -->
+        </ul> <!-- para-tab-nav end -->
         
 		<ul class="box">
+            
+           
+            
             <li style="display: block;" class="box2 tab-box active">
+
 				<div class="option-box">
                     <p class="option-title">Themes</p>
                     <p class="option-info"></p>
-                    <select name="accordions_themes"  >
-                    <option class="accordions_themes_flat" value="flat" <?php if($accordions_themes=="flat")echo "selected"; ?>>Flat</option>
+                    
+                    <?php
+						$class_accordions_functions = new class_accordions_functions();
+						
+						$accordions_themes_list = $class_accordions_functions->accordions_themes();
+						
+					
+					
+					?>
+                    
+                    
+                    <select class="accordions_themes" name="accordions_themes"  >
+                    
+                    
+					<?php
+
+
+						
+						foreach($accordions_themes_list as $theme_key => $theme_name)
+							{
+	
+								echo '<option  value="'.$theme_key.'" ';
+								
+								if($accordions_themes == $theme_key ) 
+									{
+									echo "selected";
+									}
+									
+								echo '>';
+								
+								
+								echo $theme_name.'</option>';
+								
+							}
+                    
+                    ?>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                   
                     </select>
                 </div>
@@ -240,7 +293,7 @@ function meta_boxes_accordions_input( $post ) {
                     
                         $i=0;
                         echo "<select class='accordions_icons_list' name='accordions_icons' >";
-                    
+						
                         while($i<$count)
                             {
                                 $filelink_name= str_replace($dir_path,"",$filenames[$i]);
@@ -271,10 +324,28 @@ function meta_boxes_accordions_input( $post ) {
                     
                     
                     ?>
-                   
-				</div>
-                
-                
+                    <?php 
+					
+					if($accordions_icons == 'custom')
+						{
+						echo '<div style="display:block;" class="accordions_icons_custom">';
+						}
+					else
+						{
+						echo '<div style="display:none;" class="accordions_icons_custom">';
+						}
+					
+					?>
+                    
+
+                    	<span title="Minus Icon" class="accordions_icons_custom_minus" style="background-image:url(<?php if(!empty($accordions_icons_minus)) echo $accordions_icons_minus; else echo '';?>)">
+                        <input type="hidden" name="accordions_icons_minus" value="<?php if(!empty($accordions_icons_minus)) echo $accordions_icons_minus; else echo '';?>" />
+                        </span>
+
+                        </div>
+                    </div>
+                    
+
 				<div class="option-box">
                     <p class="option-title">Default Background Color</p>
                     <p class="option-info"></p>
@@ -321,14 +392,13 @@ function meta_boxes_accordions_input( $post ) {
             <li style="display: none;" class="box3 tab-box ">
 				<div class="option-box">
                     <p class="option-title">Content</p>
-                    <p class="option-info"></p>
+                    <p class="option-info">You can sorting accordion by dragging * of each title, click to expand title and see the input.</p>
                     
                     <div class="accordions-content-buttons" >
-                        <div class="button add-accordions">Add</div>
+                        <div class="button add-accordions">Add</div>                 
                         <br />
                     </div>
-
-                 <table width="100%" class="accordions-content" id="accordions-content">
+                <table width="100%" class="accordions-content" id="accordions-content">
                 
                 <?php
                // $total_row = count($accordions_content_title);
@@ -349,7 +419,7 @@ function meta_boxes_accordions_input( $post ) {
 					?>
                     <tr index='<?php echo $index; ?>' valign="top">
                     
-                    	<td class="section-dragHandle">*</td>
+                    	<td class="section-dragHandle">&nbsp;</td>
                     
                         <td style="vertical-align:middle;">
                         <div class="section-header">
@@ -358,10 +428,28 @@ function meta_boxes_accordions_input( $post ) {
                             </div>
 							
                         <span class="removeaccordions">X</span>
+                        
+                        <?php
+                        
+							if(!empty($accordions_hide[$index]))
+								{
+									$checked = 'checked';
+								}
+							else
+								{
+									$checked = '';
+								}
+						
+						
+						?>
+                        
+                        <label class="switch" title="Hide on Frontend"><input  type="checkbox" name="accordions_hide[<?php echo $index; ?>]" value="1" <?php echo $checked; ?> /> </label>
+   
 
+                        
                         </div>
                         <div class="section-panel">
-                        <input width="100%" class="accordions_content_title" placeholder="accordions Header" type="text" name="accordions_content_title[row_<?php echo $i; ?>]" value="<?php if(!empty($accordions_title)) echo $accordions_title; ?>" />
+                        <input width="100%" placeholder="accordions Header" type="text" name="accordions_content_title[row_<?php echo $i; ?>]" value="<?php if(!empty($accordions_title)) echo $accordions_title; ?>" />
 
                         
                         
@@ -393,10 +481,66 @@ function meta_boxes_accordions_input( $post ) {
 
                      
                  </table>
-  
+
+
+
+<script>
+
+	jQuery(document).ready(function() {
+
+		// Initialise the table
+		jQuery("#accordions-content").tableDnD({
+			
+			dragHandle: "section-dragHandle",
+			});
+
+
+
+
+
+
+	});
+
+</script>
+
+
+
 
                 </div>  
             </li>
+        
+        
+            
+            <li style="display: none;" class="box4 tab-box ">
+				<div class="option-box">
+                    <p class="option-title">Custom CSS for this Accordions</p>
+                    <p class="option-info">Do not use &lt;style>&lt;/style> tag, you can use bellow prefix to your css, sometime you need use "!important" to overrid.<br/>
+                    
+                    <b>#accordions-<?php echo $post->ID; ?></b>
+                    <br/></p>
+                    
+                    
+                    
+                    
+                   	<?php
+                    
+					$accordions_id = $post->ID;
+					
+					
+					$empty_css_sample = '#accordions-'.$accordions_id.'{}\n#accordions-'.$accordions_id.' .accordions-head{}\n#accordions-'.$accordions_id.' .accordion-content{}';
+					
+					
+					?>
+                    
+                    
+                    
+                    <textarea style="width:80%; min-height:150px" name="accordions_custom_css" ><?php if(!empty($accordions_custom_css)) echo htmlentities($accordions_custom_css); else echo str_replace('\n', PHP_EOL, $empty_css_sample); ?></textarea>
+                    
+                    
+                </div> 
+            
+        	</li>
+        
         
         </ul>
         
@@ -443,9 +587,12 @@ function meta_boxes_accordions_save( $post_id ) {
   /* OK, its safe for us to save the data now. */
 
   // Sanitize user input.
+    	  
+ 	 
 	$accordions_bg_img = sanitize_text_field( $_POST['accordions_bg_img'] );	
 	$accordions_themes = sanitize_text_field( $_POST['accordions_themes'] );
 	$accordions_icons = sanitize_text_field( $_POST['accordions_icons'] );
+	$accordions_icons_minus = sanitize_text_field( $_POST['accordions_icons_minus'] );			
 
 	$accordions_default_bg_color = sanitize_text_field( $_POST['accordions_default_bg_color'] );	
 	$accordions_active_bg_color = sanitize_text_field( $_POST['accordions_active_bg_color'] );
@@ -460,15 +607,23 @@ function meta_boxes_accordions_save( $post_id ) {
 	$accordions_content_title = stripslashes_deep( $_POST['accordions_content_title'] );	
 	$accordions_content_body = stripslashes_deep( $_POST['accordions_content_body'] );		
 	
-
+	if(empty($_POST['accordions_hide']))
+		{
+			$_POST['accordions_hide'] = '';	
+		}
 	
-			
+	$accordions_hide = stripslashes_deep( $_POST['accordions_hide'] );	
+	
+	$accordions_custom_css = stripslashes_deep( $_POST['accordions_custom_css'] );			
 
 
-  // Update the meta field in the database.
+  // Update the meta field in the database.		  
+ 
 	update_post_meta( $post_id, 'accordions_bg_img', $accordions_bg_img );	
 	update_post_meta( $post_id, 'accordions_themes', $accordions_themes );
 	update_post_meta( $post_id, 'accordions_icons', $accordions_icons );
+	update_post_meta( $post_id, 'accordions_icons_minus', $accordions_icons_minus );	
+
 
 	update_post_meta( $post_id, 'accordions_default_bg_color', $accordions_default_bg_color );
 	update_post_meta( $post_id, 'accordions_active_bg_color', $accordions_active_bg_color );
@@ -482,7 +637,39 @@ function meta_boxes_accordions_save( $post_id ) {
 	
 	update_post_meta( $post_id, 'accordions_content_title', $accordions_content_title );
 	update_post_meta( $post_id, 'accordions_content_body', $accordions_content_body );	
+	
+	update_post_meta( $post_id, 'accordions_hide', $accordions_hide );
+
+	update_post_meta( $post_id, 'accordions_custom_css', $accordions_custom_css );
+
+
 
 }
-
 add_action( 'save_post', 'meta_boxes_accordions_save' );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>

@@ -4,7 +4,7 @@
 	Tags: accordion, accordions, Responsive accordions, accordions plugin, jQuery accordions, accordions short-code, accordions Widget, accordions plugin wordpress, accordions plugin jquery
 	Requires at least: 3.8
 	Tested up to: 4.2.4
-	Stable tag: 1.5
+	Stable tag: 1.6
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,8 @@ Accordions is pure HTML & CSS3 responsive accordion grid for WordPress. By this 
 * Unlimited accordions anywhere.
 * Use via short-code.
 * Different Theme.
+* Accordion section sorting.
+* WP Editor for Accordion Content.
 * Easy input field for accordions content.
 * Background Image for accordions area.
 * Custom Active accordions background color.
@@ -47,12 +49,15 @@ Accordions is pure HTML & CSS3 responsive accordion grid for WordPress. By this 
 * Themes(4 Different Themes).
 * Icon Position(Left or Right).
 * Custom Icons(Add your own icons).
-* Accordion Sorting.
-* WP Editor for Accordion Content.
-* Multilevel accordion.
+* Multilevel or child accordion.
 * Hide any accordion without deleting.
 * Click Header to scroll top.
 * Default active accordion.
+* Collapsible section.
+* Filter Hook for Accordion Header & Content.
+* Open/Active accordion by url, (ex: yourdomain.com/accordion-page/?id=2)
+* Addon Support for Creating Themes.
+* Any Short-Codes inside accordion content.
 
 
 
@@ -97,6 +102,11 @@ then paste this shortcode anywhere in your page to display accordions<br />
 == Changelog ==
 
 
+	= 1.6 =
+    * 14/08/2015 - add - re-coding & made by OOP.
+    * 14/08/2015 - add - Hide any section of accordion.
+    * 14/08/2015 - add - Custom CSS box.	
+	
 	= 1.5 =
     * 09/06/2015 - fix - fix issue for content formating and added wpautop().
 	

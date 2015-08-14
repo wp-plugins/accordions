@@ -8,37 +8,11 @@
   margin: 20px 0;
 }
 
-
-.para-settings .option-box > textarea,
-.para-settings .option-box > p
- {
-	width:100%;
-}
-
-.para-settings .option-box > input {
-  width: 50%;
-}
-
-
-.para-settings h2 {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 25px 0;
-}
-
-
-
-
-
-
-
-
 .para-settings .option-box {
   border-left: 3px solid rgb(255, 255, 255);
   margin: 10px 0;
   padding: 10px;
 }
-
 
 
 .para-settings .option-box:hover {
@@ -95,83 +69,64 @@
 }
 
 
-.para-settings .hidden-mob {
 
+
+.para-settings .new_user_profile_social {
+  margin: 15px 5px;
+}
+
+
+
+.para-settings ul.voting-bg-img-list{}
+
+.para-settings ul.voting-bg-img-list li {
+  display: inline-block;
+  margin: 5px;
+}
+.para-settings ul.voting-bg-img-list li.bg-selected {}
+
+.para-settings ul.voting-bg-img-list li img{border: 2px solid #ffffff;}
+
+.para-settings ul.voting-bg-img-list li.bg-selected img{
+  border: 2px solid #ff5a11;
+}
+
+
+.para-settings h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 25px 0;
+}
+
+
+.para-settings .expandable {
+
+}
+
+.para-settings .expandable .items {
+  background: none repeat scroll 0 0 rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(153, 153, 153);
+  margin: 2px 0;
+}
+
+.para-settings .expandable .header {
+  background: none repeat scroll 0 0 rgb(255, 255, 255);
+  padding: 5px;
+}
+
+.para-settings .expandable .active .options {
+  
+  display: block;
+
+}
+.para-settings .expandable .options {
+	background: none repeat scroll 0 0 rgb(240, 240, 240);
   display: none;
-
-}
-
-
-/* data-table */
-
-.para-settings .data-table {
-  border: 1px solid rgb(199, 199, 199);
-  border-collapse: collapse;
-}
-
-.para-settings .data-table tr {
-  border-bottom: 1px solid rgb(199, 199, 199);
-}
-
-
-.para-settings .data-table th {
-  border-bottom: 2px solid rgb(253, 197, 28);
-  border-collapse: collapse;
-  padding: 10px 20px 10px 8px;
-}
-
-
-.para-settings .data-table td {
-  border-bottom: 1px solid rgb(199, 199, 199);
-  border-collapse: collapse;
-  padding: 10px 20px 10px 8px;
-}
-
-.para-settings .button {
-  margin: 20px 0;
-}
-
-.para-settings .success {
-  background: none repeat scroll 0 0 rgb(105, 221, 157);
-  padding: 5px 10px;
-  display:none;
-}
-
-
-/*para-form-table*/
-
-
-.para-settings .para-form-table {
-
-  border-collapse: collapse;
-}
-
-.para-settings .para-form-table tr {
-
-}
-
-
-.para-settings .para-form-table th {
-  border-collapse: collapse;
-  padding: 10px 20px 10px 8px;
-  text-align: left;
-  vertical-align: top;
-  width: 200px;
-}
-
-.para-settings .para-form-table td {
-
-  border-collapse: collapse;
-  padding: 10px 20px 10px 8px;
-}
-
-.para-settings pre {
-
+  padding: 10px;
 }
 
 
 @media all and (max-width: 799px) {
-	
 
 	
 	.para-settings ul.tab-nav li {
@@ -184,6 +139,22 @@
 		font-weight: bold;
 		}	
 	
+
+
+
+
+	.para-settings .pricing-table .column {
+		display:block;
+		float:none;
+		width:100%;
+		border-right: 1px solid #ff9601;
+		margin: 50px 0;
+	
+	}
+
+
+
+
 
 	
 }

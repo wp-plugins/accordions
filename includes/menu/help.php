@@ -1,8 +1,21 @@
+<?php
+/*
+* @Author 		ParaTheme
+* Copyright: 	2015 ParaTheme
+*/
+
+if ( ! defined('ABSPATH')) exit;  // if direct access
+
+?>
+
+
+
+
+
 <div class="wrap">
 	<?php echo "<h2>".__(accordions_plugin_name.' Help')."</h2>";
 	
-    $accordions_customer_type = get_option('accordions_customer_type');
-    $accordions_version = get_option('accordions_version');
+
 	
 	
 	?>
@@ -12,26 +25,22 @@
 
     <div class="para-settings">
         <ul class="tab-nav"> 
-            <li nav="1" class="nav1 active">Help & Upgrade</li>
+            <li nav="1" class="nav1 active">Help & Support</li>
         </ul> <!-- tab-nav end -->  
         
 		<ul class="box">
         
             <li style="display: block;" class="box1 tab-box active">
-<div class="option-box">
+				<div class="option-box">
                     <p class="option-title">Need Help ?</p>
                     <p class="option-info">Feel free to contact with any issue for this plugin, Ask any question via forum <a href="<?php echo accordions_qa_url; ?>"><?php echo accordions_qa_url; ?></a> <strong style="color:#139b50;">(free)</strong><br />
-                    
-                    
-                    
 
     <?php
 
-
-    if($accordions_customer_type=="free")
+    if(accordions_customer_type=="free")
         {
     
-            echo 'You are using <strong> '.$accordions_customer_type.' version  '.$accordions_version.'</strong> of <strong>'.accordions_plugin_name.'</strong>, To get more feature you could try our premium version. ';
+            echo 'You are using <strong> '.accordions_customer_type.' version  '.accordions_plugin_version.'</strong> of <strong>'.accordions_plugin_name.'</strong>, To get more feature you could try our premium version. ';
             
             echo '<br /><a href="'.accordions_pro_url.'">'.accordions_pro_url.'</a>';
             
@@ -39,21 +48,16 @@
     else
         {
     
-            echo 'Thanks for using <strong> premium version  '.$accordions_version.'</strong> of <strong>'.accordions_plugin_name.'</strong> ';	
+            echo 'Thanks for using <strong> premium version  '.accordions_plugin_version.'</strong> of <strong>'.accordions_plugin_name.'</strong> ';	
             
             
         }
     
      ?>       
 
-           
-                    
-                    
                     
                     </p>
-                    
-                    
-                    
+
                 </div>
                 
                 
@@ -78,13 +82,14 @@
 					?>
                 </div>
                 
+
+
 				<div class="option-box">
-                    <p class="option-title">Video Tutorial(with premium features)</p>
+                    <p class="option-title">Video Tutorial</p>
                     <p class="option-info">Please watch this video tutorial.</p>
                 	<iframe width="640" height="480" src="<?php echo accordions_tutorial_video_url; ?>" frameborder="0" allowfullscreen></iframe>
                 </div>
-               
-
+    
                 
                 
             </li>        
